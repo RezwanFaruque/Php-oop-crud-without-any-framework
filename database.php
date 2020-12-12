@@ -7,6 +7,7 @@
             parent::__construct();
         }
 
+        // Get all the data from table
         function getData()
         {
             $query = $this->pdo->prepare('SELECT * FROM `database`');
@@ -14,6 +15,7 @@
             return $query->fetchAll(PDO::FETCH_CLASS);
         }
 
+        // save data in table
         function saveData($name,$title){
             
             
@@ -34,6 +36,8 @@
         }
 
 
+
+        // Delete specific data from database
         function deleteData($id){
             $sql = "DELETE FROM `database` WHERE `id` = '$id'";
             $query = $this->pdo->prepare($sql);
@@ -44,6 +48,26 @@
                 exit();
             }
 
+        }
+
+
+        // Edit specific data
+        function editData($id){
+
+
+            $sql = "SELECT * FROM `database` WHERE `id` = '$id'";
+
+            $query = $this->pdo->prepare($sql);
+            $query->execute();
+
+            
+            $row = $query->fetchObject();
+
+            return $row;
+                
+            
+
+            
         }
     }
 ?>

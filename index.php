@@ -30,7 +30,8 @@ foreach ($rows as $row) {
      <?php
        echo $row->title;
      ?>
-     <a style="text-decoration: none; border:1px solid blue;padding:2px;color:red;" href="index.php?postid=<?php echo $row->id?>">Delete</a>
+     <a style="text-decoration: none; border:1px solid red;padding:2px;color:red;" href="index.php?postid=<?php echo $row->id?>">Delete</a>
+     <a style="text-decoration: none; border: 1px solid green;color: white; background-color:blue; margin-right:10px; padding:5px;" href="editpost.php?postid=<?php echo $row->id?>">Edit</a>
    </div>
 <?php
  }
@@ -38,9 +39,9 @@ foreach ($rows as $row) {
 
 <div>
    <h4>save data to database</h4>
-   <form action="index.php" method="post">
+   <form action="index.php" method="post" style="display: flex; flex-direction:column;width:400px;">
         <input type="text" name="name">
-        <input type="text" name="title">
+        <textarea name="title" id="title" cols="30" rows="10"></textarea>
         <button type="submit" name="save">save data</button>
    </form>
 </div>
