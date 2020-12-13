@@ -89,7 +89,7 @@
                 exit();
             }else{
                 $message = "Your data update failed";
-                header('Location:index.php?$message');
+                header('Location:index.php?message='.$message);
             }
         }
     }
