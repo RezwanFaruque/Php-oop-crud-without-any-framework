@@ -69,5 +69,28 @@
 
             
         }
+
+
+        // update data from database
+        function updateData($postdata){
+
+            $name = $postdata['name'];
+            $title = $postdata['title'];
+            $id = $postdata['postid'];
+
+            $sql = "UPDATE `database` SET `name` = '$name',`title` = '$title' WHERE `database`.`id` = '$id'";
+            $query = $this->pdo->prepare($sql);
+            $query->execute();
+            $message = "";
+            
+            if($query->execute()){
+                $message = "your data updated successfully";
+                header('Location:index.php?message='.$message);
+                exit();
+            }else{
+                $message = "Your data update failed";
+                header('Location:index.php?$message');
+            }
+        }
     }
 ?>

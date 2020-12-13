@@ -37,6 +37,8 @@ foreach ($rows as $row) {
  }
 ?>
 
+<h3 style="background-color: green;"><?php echo $_GET['message'] ?></h3>
+
 <div>
    <h4>save data to database</h4>
    <form action="index.php" method="post" style="display: flex; flex-direction:column;width:400px;">
